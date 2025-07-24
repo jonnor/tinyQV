@@ -12,6 +12,8 @@ OBJCOPY = $(RISCV_TOOLCHAIN)/bin/riscv32-unknown-elf-objcopy
 
 TINYQV_SDK ?= ../../tinyQV-sdk
 
+.PHONY: run
+
 all: $(PROJECT_NAME).bin $(PROJECT_NAME).hex
 
 clean:
@@ -32,3 +34,6 @@ $(PROJECT_NAME).bin: $(PROJECT_NAME).elf
 $(PROJECT_NAME).hex: $(PROJECT_NAME).bin
 	od -An -t x1 -w4 -v $< > $@
 
+run: $(PROJECT_NAME).bin
+	mpremote cp $< :
+	mpremote run run_program.py

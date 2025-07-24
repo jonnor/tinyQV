@@ -14,6 +14,8 @@ with MicroPython set up on the RP2040.
 
 ## Building
 
+To build the program.
+
 ```
 make RISCV_TOOLCHAIN=../../toolchain/riscv/ TINYQV_SDK=../../tinyQV-sdk
 ```
@@ -22,6 +24,23 @@ Adjust the paths if the pieces are elsewhere.
 
 ## Running
 
+To build program and run on the tinyQV.
+
 ```
-TODO: document
+make run RISCV_TOOLCHAIN=../../toolchain/riscv/ TINYQV_SDK=../../tinyQV-sdk
+```
+
+The output should be something like.
+
+```
+mpremote cp example.bin :
+cp example.bin :
+mpremote run run_program.py
+ff ef 17 
+*****.--.
+Program done
+Verify done
+6f 00 00 05 6f 00 80 06 24 f0 73 25 20 34 93 74 
+........................................
+
 ```
