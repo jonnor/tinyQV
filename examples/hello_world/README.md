@@ -7,10 +7,12 @@
 You will need the [tinyQV-sdk](https://github.com/MichaelBell/tinyQV-sdk),
 including the custom GCC toolchain.
 
-And the you will need
-
-TinyQV must be running on pico-ice,
+TinyQV must be running on pico-ice (ICE40),
 with MicroPython set up on the RP2040.
+
+You must have the run_tinyqv.py and flash_prog.py modules on the RP2040.
+
+You need the `mpremote` tool for communicating with MicroPython.
 
 ## Building
 
