@@ -1,4 +1,5 @@
 import time
+import machine
 from machine import SPI, Pin
 machine.freq(133_000_000)
 
