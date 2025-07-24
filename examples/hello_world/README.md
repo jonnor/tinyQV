@@ -48,5 +48,7 @@ Verify done
 ```
 
 The program should write "Hello World" on UART every few seconds, and toggle the GPIO pins.
+
 The UART is on GPIO0, with baudrate 115200.
+If you wire GPIO0 to pin 17 of the Pico, the above program will print the UART data.
 
