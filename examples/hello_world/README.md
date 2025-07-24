@@ -44,3 +44,7 @@ Verify done
 ........................................
 
 ```
+
+The program should write "Hello World" on UART every few seconds, and toggle the GPIO pins.
+The UART is on GPIO0, with baudrate 115200.
+

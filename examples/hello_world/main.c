@@ -10,19 +10,27 @@ void busy_wait_cycles(uint32_t cycles) {
     }
 }
 
+void uart_tx_enable(void) {
+	uint32_t gpio_sel = get_gpio_sel();
+	//gpio_sel |=  0b10000000;
+	gpio_sel &= ~0b00000001; // UART on GPIO0
+	set_gpio_sel(gpio_sel);
+}
+
 void main(void) {
 
-    // set all pins to GPIO mode
-    // TODO: enable UART pins
-    set_gpio_sel(0xFFFFFFFF);
+    set_gpio_sel(0xFFFFFFFF); // set all pins to GPIO mode initially
+    uart_tx_enable();
 
+    int counter = 0;
     while (1) {
         set_outputs(0x00000000);
         // XXX: this results in blinking approx once per 4 seconds
-        busy_wait_cycles(CLOCK_HZ/20);
+        busy_wait_cycles(CLOCK_HZ/10);
         set_outputs(0xFFFFFFFF);
-        busy_wait_cycles(CLOCK_HZ/20);
+        busy_wait_cycles(CLOCK_HZ/10);
+
+        uart_printf("hello world %d\n", counter++);
     }
 
-    //uart_printf("hello world %d", 111);
 }
